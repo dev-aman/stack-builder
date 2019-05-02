@@ -36,7 +36,7 @@ $: stack-builder
 
 Follow the instructions in the terminal and Build the MVVM-C stack.
 
-![](/Users⁩/aman⁩/Desktop/⁩stack-builder)
+![Build the MVVM-C stack](stack-builder/Resources/Images/stack-builder.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
