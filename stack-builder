@@ -18,12 +18,12 @@ read prefixVariableName
 echo "☞ Do you want co-ordinator as well? (Y/N)"
 read createCoordinator
 
-projectName="Shuttl"
+projectName="MVVM-CPoc"
 authorName="Aman Gupta"
 now=$(date)
 currentDate=$(date -j -f '%a %b %d %T %Z %Y' "$now" "+%d/%m/%Y")
 currentYear=$(date -j -f '%a %b %d %T %Z %Y' "$now" "+%Y")
-organisationName="Super Highways Private Ltd."
+organisationName="dev.aman.poc ventures."
 scaffoldingBaseDirectoryName="/Users/aman/Documents/dev.aman/MVVM/Scaffolding"
 scaffoldingModuleName="Scaffolding"
 scaffoldingVariablePrefixName="scaffolding"
