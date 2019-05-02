@@ -1,0 +1,145 @@
+#!/bin/bash
+
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo "~~~~~~~~ @     @  @     @  @     @  @     @   @@@@@ ~~~~~~~~"
+echo "~~~~~~~~ @  @  @   @   @    @   @   @  @  @ _ @     ~~~~~~~~"
+echo "~~~~~~~~ @     @    @ @      @ @    @     @   @     ~~~~~~~~"
+echo "~~~~~~~~ @     @     @        @     @     @   @@@@@ ~~~~~~~~"
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+echo "☞ What would be the name of your module?"
+read moduleName
+
+echo "☞ What would be the prefix for your variable names?"
+read prefixVariableName
+
+echo "☞ Do you want co-ordinator as well? (Y/N)"
+read createCoordinator
+
+projectName="Shuttl"
+authorName="Aman Gupta"
+now=$(date)
+currentDate=$(date -j -f '%a %b %d %T %Z %Y' "$now" "+%d/%m/%Y")
+currentYear=$(date -j -f '%a %b %d %T %Z %Y' "$now" "+%Y")
+organisationName="Super Highways Private Ltd."
+scaffoldingBaseDirectoryName="/Users/aman/Documents/dev.aman/MVVM/Scaffolding"
+scaffoldingModuleName="Scaffolding"
+scaffoldingVariablePrefixName="scaffolding"
+
+echo "Project Name: "$projectName
+echo "Author: "$authorName
+echo "creation Date: "${currentDate}
+echo "copyright Year: "${currentYear}
+if [ $createCoordinator == 'Y' ] || [ $createCoordinator == 'y' ] || [ $createCoordinator == 'yes' ] || [ $createCoordinator == 'Yes' ]
+then
+echo "♕ You are building stack with co-ordinator!!"
+fi
+
+echo "☞ Do you want to continue? (Y/N)"
+read userContinues
+
+if [ $userContinues == 'Y' ] || [ $userContinues == 'y' ] || [ $userContinues == 'yes' ] || [ $userContinues == 'Yes' ]
+then
+mkdir $moduleName
+
+cd $moduleName
+
+mkdir View
+mkdir ViewModel
+mkdir Model
+mkdir Service
+if [ $createCoordinator == 'Y' ] || [ $createCoordinator == 'y' ] || [ $createCoordinator == 'yes' ] || [ $createCoordinator == 'Yes' ]
+then
+mkdir Coordinator
+fi
+mkdir UseCase
+
+cd View 
+
+touch ${moduleName}"ViewController.swift"
+cat ${scaffoldingBaseDirectoryName}"/View/"${scaffoldingModuleName}"ViewController.swift" >> ${moduleName}"ViewController.swift"
+touch ${moduleName}"ViewController.xib"
+cat ${scaffoldingBaseDirectoryName}"/View/"${scaffoldingModuleName}"ViewController.xib" >> ${moduleName}"ViewController.xib"
+touch ${moduleName}"ViewDelegate.swift"
+cat ${scaffoldingBaseDirectoryName}"/View/"${scaffoldingModuleName}"ViewDelegate.swift" >> ${moduleName}"ViewDelegate.swift"
+sed -i "" "s|${scaffoldingModuleName}|${moduleName}|g" ${moduleName}"ViewController.swift" ${moduleName}"ViewDelegate.swift" ${moduleName}"ViewController.xib"
+sed -i "" "s|${scaffoldingVariablePrefixName}|${prefixVariableName}|g" ${moduleName}"ViewController.swift" ${moduleName}"ViewDelegate.swift"
+sed -i "" "s|PROJECT_NAME|${projectName}|g" ${moduleName}"ViewController.swift" ${moduleName}"ViewDelegate.swift"
+sed -i "" "s|AUTHOR|${authorName}|g" ${moduleName}"ViewController.swift" ${moduleName}"ViewDelegate.swift"
+sed -i "" "s|CREATION_DATE|${currentDate}|g" ${moduleName}"ViewController.swift" ${moduleName}"ViewDelegate.swift"
+sed -i "" "s|COPYRIGHT_YEAR|${currentYear}|g" ${moduleName}"ViewController.swift" ${moduleName}"ViewDelegate.swift"
+sed -i "" "s|ORGANISATION_NAME|${organisationName}|g" ${moduleName}"ViewController.swift" ${moduleName}"ViewDelegate.swift"
+
+cd ..
+cd ViewModel
+touch ${moduleName}"ViewModel.swift"
+cat ${scaffoldingBaseDirectoryName}"/ViewModel/"${scaffoldingModuleName}"ViewModel.swift" >> ${moduleName}"ViewModel.swift"
+touch ${moduleName}"ViewModelProtocol.swift"
+cat ${scaffoldingBaseDirectoryName}"/ViewModel/"${scaffoldingModuleName}"ViewModelProtocol.swift" >> ${moduleName}"ViewModelProtocol.swift"
+sed -i "" "s|${scaffoldingModuleName}|${moduleName}|g" ${moduleName}"ViewModel.swift" ${moduleName}"ViewModelProtocol.swift"
+sed -i "" "s|${scaffoldingVariablePrefixName}|${prefixVariableName}|g" ${moduleName}"ViewModel.swift" ${moduleName}"ViewModelProtocol.swift"
+sed -i "" "s|PROJECT_NAME|${projectName}|g" ${moduleName}"ViewModel.swift" ${moduleName}"ViewModelProtocol.swift"
+sed -i "" "s|AUTHOR|${authorName}|g" ${moduleName}"ViewModel.swift" ${moduleName}"ViewModelProtocol.swift"
+sed -i "" "s|CREATION_DATE|${currentDate}|g" ${moduleName}"ViewModel.swift" ${moduleName}"ViewModelProtocol.swift"
+sed -i "" "s|COPYRIGHT_YEAR|${currentYear}|g" ${moduleName}"ViewModel.swift" ${moduleName}"ViewModelProtocol.swift"
+sed -i "" "s|ORGANISATION_NAME|${organisationName}|g" ${moduleName}"ViewModel.swift" ${moduleName}"ViewModelProtocol.swift"
+
+cd ..
+cd Model
+touch ${moduleName}"DataModel.swift"
+cat ${scaffoldingBaseDirectoryName}"/Model/"${scaffoldingModuleName}"DataModel.swift" >> ${moduleName}"DataModel.swift"
+touch ${moduleName}"DataModelProtocol.swift"
+cat ${scaffoldingBaseDirectoryName}"/Model/"${scaffoldingModuleName}"DataModelProtocol.swift" >> ${moduleName}"DataModelProtocol.swift"
+sed -i "" "s|${scaffoldingModuleName}|${moduleName}|g" ${moduleName}"DataModel.swift" ${moduleName}"DataModelProtocol.swift"
+sed -i "" "s|${scaffoldingVariablePrefixName}|${prefixVariableName}|g" ${moduleName}"DataModel.swift" ${moduleName}"DataModelProtocol.swift"
+sed -i "" "s|PROJECT_NAME|${projectName}|g" ${moduleName}"DataModel.swift" ${moduleName}"DataModelProtocol.swift"
+sed -i "" "s|AUTHOR|${authorName}|g" ${moduleName}"DataModel.swift" ${moduleName}"DataModelProtocol.swift"
+sed -i "" "s|CREATION_DATE|${currentDate}|g" ${moduleName}"DataModel.swift" ${moduleName}"DataModelProtocol.swift"
+sed -i "" "s|COPYRIGHT_YEAR|${currentYear}|g" ${moduleName}"DataModel.swift" ${moduleName}"DataModelProtocol.swift"
+sed -i "" "s|ORGANISATION_NAME|${organisationName}|g" ${moduleName}"DataModel.swift" ${moduleName}"DataModelProtocol.swift"
+
+cd ..
+cd Service
+touch ${moduleName}"Request.swift"
+cat ${scaffoldingBaseDirectoryName}"/Service/"${scaffoldingModuleName}"Request.swift" >> ${moduleName}"Request.swift"
+sed -i "" "s|${scaffoldingModuleName}|${moduleName}|g" ${moduleName}"Request.swift"
+sed -i "" "s|${scaffoldingVariablePrefixName}|${prefixVariableName}|g" ${moduleName}"Request.swift"
+sed -i "" "s|PROJECT_NAME|${projectName}|g" ${moduleName}"Request.swift"
+sed -i "" "s|AUTHOR|${authorName}|g" ${moduleName}"Request.swift"
+sed -i "" "s|CREATION_DATE|${currentDate}|g" ${moduleName}"Request.swift"
+sed -i "" "s|COPYRIGHT_YEAR|${currentYear}|g" ${moduleName}"Request.swift"
+sed -i "" "s|ORGANISATION_NAME|${organisationName}|g" ${moduleName}"Request.swift"
+
+if [ $createCoordinator == 'Y' ] || [ $createCoordinator == 'y' ] || [ $createCoordinator == 'yes' ] || [ $createCoordinator == 'Yes' ]
+then
+cd ..
+cd Coordinator
+touch ${moduleName}"Coordinator.swift"
+cat ${scaffoldingBaseDirectoryName}"/Coordinator/"${scaffoldingModuleName}"Coordinator.swift" >> ${moduleName}"Coordinator.swift"
+sed -i "" "s|${scaffoldingModuleName}|${moduleName}|g" ${moduleName}"Coordinator.swift"
+sed -i "" "s|${scaffoldingVariablePrefixName}|${prefixVariableName}|g" ${moduleName}"Coordinator.swift"
+sed -i "" "s|PROJECT_NAME|${projectName}|g" ${moduleName}"Coordinator.swift"
+sed -i "" "s|AUTHOR|${authorName}|g" ${moduleName}"Coordinator.swift"
+sed -i "" "s|CREATION_DATE|${currentDate}|g" ${moduleName}"Coordinator.swift"
+sed -i "" "s|COPYRIGHT_YEAR|${currentYear}|g" ${moduleName}"Coordinator.swift"
+sed -i "" "s|ORGANISATION_NAME|${organisationName}|g" ${moduleName}"Coordinator.swift"
+fi
+
+cd ..
+cd UseCase
+touch ${moduleName}"UseCase.swift"
+cat ${scaffoldingBaseDirectoryName}"/UseCase/"${scaffoldingModuleName}"UseCase.swift" >> ${moduleName}"UseCase.swift"
+sed -i "" "s|${scaffoldingModuleName}|${moduleName}|g" ${moduleName}"UseCase.swift"
+sed -i "" "s|${scaffoldingVariablePrefixName}|${prefixVariableName}|g" ${moduleName}"UseCase.swift"
+sed -i "" "s|PROJECT_NAME|${projectName}|g" ${moduleName}"UseCase.swift"
+sed -i "" "s|AUTHOR|${authorName}|g" ${moduleName}"UseCase.swift"
+sed -i "" "s|CREATION_DATE|${currentDate}|g" ${moduleName}"UseCase.swift"
+sed -i "" "s|COPYRIGHT_YEAR|${currentYear}|g" ${moduleName}"UseCase.swift"
+sed -i "" "s|ORGANISATION_NAME|${organisationName}|g" ${moduleName}"UseCase.swift"
+
+echo "✌ Successfully built "${moduleName}" module stack."
+else 
+echo "☠ Aborted Stack builder!"
+fi
