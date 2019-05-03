@@ -131,13 +131,15 @@ cd ..
 cd UseCase
 touch ${moduleName}"UseCase.swift"
 cat ${scaffoldingBaseDirectoryName}"/UseCase/"${scaffoldingModuleName}"UseCase.swift" >> ${moduleName}"UseCase.swift"
-sed -i "" "s|${scaffoldingModuleName}|${moduleName}|g" ${moduleName}"UseCase.swift"
-sed -i "" "s|${scaffoldingVariablePrefixName}|${prefixVariableName}|g" ${moduleName}"UseCase.swift"
-sed -i "" "s|PROJECT_NAME|${projectName}|g" ${moduleName}"UseCase.swift"
-sed -i "" "s|AUTHOR|${authorName}|g" ${moduleName}"UseCase.swift"
-sed -i "" "s|CREATION_DATE|${currentDate}|g" ${moduleName}"UseCase.swift"
-sed -i "" "s|COPYRIGHT_YEAR|${currentYear}|g" ${moduleName}"UseCase.swift"
-sed -i "" "s|ORGANISATION_NAME|${organisationName}|g" ${moduleName}"UseCase.swift"
+touch ${moduleName}"UseCaseProtocol.swift"
+cat ${scaffoldingBaseDirectoryName}"/UseCase/"${scaffoldingModuleName}"UseCaseProtocol.swift" >> ${moduleName}"UseCaseProtocol.swift"
+sed -i "" "s|${scaffoldingModuleName}|${moduleName}|g" ${moduleName}"UseCase.swift" ${moduleName}"UseCaseProtocol.swift"
+sed -i "" "s|${scaffoldingVariablePrefixName}|${prefixVariableName}|g" ${moduleName}"UseCase.swift" ${moduleName}"UseCaseProtocol.swift"
+sed -i "" "s|PROJECT_NAME|${projectName}|g" ${moduleName}"UseCase.swift" ${moduleName}"UseCaseProtocol.swift"
+sed -i "" "s|AUTHOR|${authorName}|g" ${moduleName}"UseCase.swift" ${moduleName}"UseCaseProtocol.swift"
+sed -i "" "s|CREATION_DATE|${currentDate}|g" ${moduleName}"UseCase.swift" ${moduleName}"UseCaseProtocol.swift"
+sed -i "" "s|COPYRIGHT_YEAR|${currentYear}|g" ${moduleName}"UseCase.swift" ${moduleName}"UseCaseProtocol.swift"
+sed -i "" "s|ORGANISATION_NAME|${organisationName}|g" ${moduleName}"UseCase.swift" ${moduleName}"UseCaseProtocol.swift"
 
 echo "✌ Successfully built "${moduleName}" module stack."
 else 

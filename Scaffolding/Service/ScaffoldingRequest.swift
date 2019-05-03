@@ -19,11 +19,11 @@ struct ScaffoldingRequest: APIRequest {
     
     // MARK:- internal properties
     
-    var endPoint: ScaffodingEndPoint
+    var endPoint: ScaffoldingEndPoint
     
     // MARK:- initializers
     
-    init(endPoint: ScaffodingEndPoint) {
+    init(endPoint: ScaffoldingEndPoint) {
         self.endPoint = endPoint
     }
     
